@@ -1,0 +1,18 @@
+version: "3.0"
+
+services:
+    queueservice-redis:
+        image: redis:alpine
+        expose:
+            - "6379"
+        restart: on-failure
+
+    queueservice-api:
+        build:
+            context: ./
+            dockerfile: ./Dockerfile
+        depends_on:
+            - queueservice-redis
+        ports:
+            - "8091:3000"
+        restart: on-failure

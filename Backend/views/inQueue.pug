@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 inQueue
+  p Please wait, we are proceeding your request 
+  div#order Order: #{qItem['order']}
+  div#id ID: #{qItem['uuid']}
+
+  script.
+    function reloadPage(){
+      window.location.reload();
+    }
+    var reloadScheduler = setTimeout(reloadPage, 10*1000);
