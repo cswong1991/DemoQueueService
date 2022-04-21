@@ -8,8 +8,8 @@ export default NextAuth({
             name: 'Credentials',
             type: "credentials",
             credentials: {
-                username: { label: "Username (default: admin)", type: "text" },
-                password: { label: "Password (default: admin)", type: "password" }
+                username: { label: "Username", type: "text" },
+                password: { label: "Password", type: "password" }
             },
             async authorize(credentials, req) {
                 let loginURL = (process.env.SERVER_PRIVATE_ENDPOINT ?? "") + (process.env.NEXT_PUBLIC_ENDPOINT_LOGIN ?? "");
